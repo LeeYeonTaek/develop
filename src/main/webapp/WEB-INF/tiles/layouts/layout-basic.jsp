@@ -7,6 +7,7 @@
     <title>Title</title>
     <tiles:insertAttribute name="include"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/layout/common.js"></script>
     <link href="/css/common.css" rel="stylesheet" type="text/css">
 </head>
 <body>
