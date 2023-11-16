@@ -5,24 +5,67 @@
             $(this).find('.submenu').stop().slideUp();
         });
     });
-    $(function() {
-        const menu = $("#responsive-menu");
-        const menuItems = menu.find("li");
-        function adjustMenu() {
-            const windowWidth = $(window).width();
+        $(function() {
+            const menuWrap = $(".menu-wrap");
+            const menu = $("#responsive-menu");
+            const menuItems = menu.find("> li"); // 수정: 바로 아래의 li만 선택
+            const toggleBtn = menu.find("#toogle-btn");
 
-            if (windowWidth < 600) {
-                menuItems.css({
-                    "display": "block",
-                    "margin-right": "0"
-                });
-            } else {
-                menuItems.css({
-                    "display": "inline-block",
-                    "margin-right": "40px"
-                });
+            function adjustMenu() {
+                const windowWidth = $(window).width();
+
+                if (windowWidth < 200) {
+                    $(window).width(200);
+                }
+
+                if (windowWidth < 600) {
+                    menuWrap.css({
+                        "position": "relative"
+                    });
+
+                    menuItems.not(":first-child, :last-child").css({ // 수정: 첫 번째와 마지막 요소를 제외하고 숨기기
+                        "display": "none",
+                    });
+
+                    menuItems.first().css({
+                        "float": "left", // 오른쪽 정렬
+                    });
+
+                    menuItems.last().css({
+                        "float": "right", // 오른쪽 정렬
+                    });
+
+                    toggleBtn.css({
+                        "display": "inline-block",
+                        "float": "right",
+                    });
+
+                    menu.find(".submenu").css({ // 수정: 서브메뉴도 숨기기
+                        "display": "none",
+                    });
+                } else {
+                    menuWrap.css({
+                        "position": "static"
+                    });
+
+                    menuItems.css({
+                        "display": "inline-block",
+                        "margin-right": "40px",
+                        "float": "none",
+                    });
+
+                    toggleBtn.css({
+                        "display": "none",
+                    });
+                }
             }
-        }
-        adjustMenu();
-        $(window).on("resize", adjustMenu);
+
+            adjustMenu();
+            $(window).on("resize", adjustMenu);
+        });
+
+    $(function (){
+        $('#toogle-btn').click(function (){
+            $('.sidebar').classList.toggle('open-sidebar');
+        });
     });
