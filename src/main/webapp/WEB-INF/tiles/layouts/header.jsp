@@ -10,7 +10,7 @@
         </ul>
     </li>
     <li><a href="#mypage">마이페이지</a></li>
-    <li><a href="#" id="#toogle-btn">☰</a></li>
+    <li><a href="#" id="toogle-btn">☰</a></li>
 </ul>
 </div>
 <br/>

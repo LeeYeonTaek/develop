@@ -9,7 +9,7 @@
             const menuWrap = $(".menu-wrap");
             const menu = $("#responsive-menu");
             const menuItems = menu.find("> li"); // 수정: 바로 아래의 li만 선택
-            const toggleBtn = menu.find("#toogle-btn");
+            const toggleBtn = menu.find("toogle-btn");
 
             function adjustMenu() {
                 const windowWidth = $(window).width();
@@ -64,8 +64,19 @@
             $(window).on("resize", adjustMenu);
         });
 
-    $(function (){
-        $('#toogle-btn').click(function (){
-            $('.sidebar').classList.toggle('open-sidebar');
+    $(function () {
+        $('#toogle-btn').click(function () {
+            $('.sidebar').toggleClass('active');
+            $('body').toggleClass('overlay-active');
+        });
+
+        $('.side-menu li:has(ul)').click(function (e) {
+            e.stopPropagation();
+            $(this).find('.side-submenu').toggle();
+        });
+
+        $('#close-btn').click(function () {
+            $('.sidebar').removeClass('active');
+            $('body').removeClass('overlay-active');
         });
     });

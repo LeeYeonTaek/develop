@@ -15,3 +15,57 @@ ul.submenu li a {color: white;padding: 12px 16px;display: block;text-decoration:
 
 .menu-wrap { margin:0 auto; text-align: center; }
 
+body {
+    transition: background-color 0.3s ease;
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrollbar due to fixed sidebar */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333; /* Dark background color for the sidebar */
+    transition: right 0.3s ease;
+}
+
+.side-menu {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+}
+
+.side-menu a {
+    color: #fff; /* White text color for menu items */
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.side-submenu {
+    display: none;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.overlay-active {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay color for the rest of the page */
+    overflow: hidden;
+}
+
+.sidebar #close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
