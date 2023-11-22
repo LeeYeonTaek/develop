@@ -5,11 +5,11 @@
         <button id="close-btn">&times;</button>
         <li><a href="#home">홈</a></li>
         <li><a href="#board">게시판</a></li>
-        <li><a href="#services">서비스</a>
+        <li class="submenu-item"><a href="#services">서비스</a>
             <ul class="side-submenu">
                 <li><a href="#submenu1">서비스1</a></li>
             </ul>
-        </li>
+        </licl>
         <li><a href="#mypage">마이페이지</a></li>
     </ul>
 </div>

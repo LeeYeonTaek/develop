@@ -68,11 +68,12 @@
         $('#toogle-btn').click(function () {
             $('.sidebar').toggleClass('active');
             $('body').toggleClass('overlay-active');
+
         });
 
         $('.side-menu li:has(ul)').click(function (e) {
             e.stopPropagation();
-            $(this).find('.side-submenu').toggle();
+            $(this).find('.side-submenu').slideToggle(300);
         });
 
         $('#close-btn').click(function () {
