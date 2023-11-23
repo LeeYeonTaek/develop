@@ -11,20 +11,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
 @Slf4j
+@RequestMapping("/member")
 public class MemberController {
 
     private final MemberService memberService;
 
-    @GetMapping("/member/join")
+    @GetMapping("/join")
     public String joinForm() {
         return "member/join";
     }
 
-    @PostMapping("/member/join")
+    @PostMapping("/join")
     public ResponseDto<Integer> save(@RequestBody MemberDto memberDto) {
         log.info("join save");
         memberDto.setRole(RoleType.USER);
