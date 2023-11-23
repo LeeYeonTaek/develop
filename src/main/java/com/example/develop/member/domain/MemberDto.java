@@ -15,22 +15,22 @@ import java.sql.Timestamp;
 @Builder
 public class MemberDto {
 
-    private int member_id;
-    private String member_name;
-    private String member_pw;
-    private String member_email;
+    private int memberId;
+    private String memberName;
+    private String memberPw;
+    private String memberEmail;
 
     @Enumerated(EnumType.STRING)
     private RoleType role;
-    private Timestamp member_reg_date;
+    private Timestamp memberRegDate;
     public Member toEntity() {
         Member member = Member.builder()
-                .member_id(member_id)
-                .member_name(member_name)
-                .member_pw(member_pw)
-                .member_email(member_email)
+                .memberId(memberId)
+                .memberName(memberName)
+                .memberPw(memberPw)
+                .memberEmail(memberEmail)
                 .role(role)
-                .member_reg_date(member_reg_date)
+                .memberRegDate(memberRegDate)
                 .build();
         return member;
     }

@@ -18,21 +18,21 @@ import java.sql.Timestamp;
 public class Member {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int member_id;
+    private int memberId;
 
     @Column(nullable = false, length = 30)
-    private String member_name;
+    private String memberName;
 
     @Column(nullable = false, length = 200)
-    private String member_pw;
+    private String memberPw;
 
     @Column(nullable = false, length = 200)
-    private String member_email;
+    private String memberEmail;
 
     @Enumerated(EnumType.STRING)
     private RoleType role;
 
     @CreationTimestamp
-    private Timestamp member_reg_date;
+    private Timestamp memberRegDate;
 
 }

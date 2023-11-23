@@ -7,9 +7,9 @@ var index = {
 
     save : function () {
         var data = {
-            member_name:$("#member_name").val(),
-            member_pw:$("#member_pw").val(),
-            member_email:$("#member_email").val()
+            memberName:$("#memberName").val(),
+            memberPw:$("#memberPw").val(),
+            memberEmail:$("#memberEmail").val()
         };
         // console.log(data);
         $.ajax({

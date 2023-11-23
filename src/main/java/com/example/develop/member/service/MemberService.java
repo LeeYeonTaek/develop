@@ -25,7 +25,7 @@ public class MemberService implements UserDetailsService {
     @Transactional
     public int join(MemberDto memberDto) {
         try {
-            memberDto.setMember_pw(passwordEncoder.encode(memberDto.getMember_pw()));
+            memberDto.setMemberPw(passwordEncoder.encode(memberDto.getMemberPw()));
             memberRepository.save(memberDto.toEntity());
             return 100;
         }catch (Exception e){
@@ -36,8 +36,8 @@ public class MemberService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String member_name) throws UsernameNotFoundException {
-        Member member = memberRepository.findByMember_name(member_name);
+    public UserDetails loadUserByUsername(String memberName) throws UsernameNotFoundException {
+        Member member = memberRepository.findByMemberName(memberName);
         if(member != null) {
             return new MemberDetails(member);
         }

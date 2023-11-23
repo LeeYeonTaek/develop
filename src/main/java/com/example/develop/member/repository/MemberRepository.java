@@ -5,5 +5,5 @@ import com.example.develop.member.domain.MemberDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MemberRepository extends JpaRepository<Member, Integer> {
-    Member findByMember_name(String member_name);
+    Member findByMemberName(String memberName);
 }

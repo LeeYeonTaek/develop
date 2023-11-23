@@ -25,12 +25,12 @@ public class MemberDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return member.getMember_pw();
+        return member.getMemberPw();
     }
 
     @Override
     public String getUsername() {
-        return member.getMember_name();
+        return member.getMemberName();
     }
 
     @Override
