@@ -33,5 +33,16 @@ public class MemberController {
         int result = memberService.join(memberDto);
         return new ResponseDto<Integer>(HttpStatus.OK.value(), result);
     }
+
+    @GetMapping("/login")
+    public String loginForm() {
+        return "member/login";
+    }
+
+    @PostMapping("/login")
+    public ResponseDto<Integer> login(@RequestBody MemberDto memberDto) {
+        int result = 1;
+        return new ResponseDto<Integer>(HttpStatus.OK.value(), result);
+    }
 }
 
