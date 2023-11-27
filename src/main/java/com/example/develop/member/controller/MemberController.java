@@ -7,6 +7,8 @@ import com.example.develop.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
 
     private final MemberService memberService;
+    private final AuthenticationManager authenticationManager;
 
     @GetMapping("/join")
     public String joinForm() {
@@ -39,10 +42,10 @@ public class MemberController {
         return "member/login";
     }
 
-    @PostMapping("/login")
+    @PostMapping("/loginProc")
     public ResponseDto<Integer> login(@RequestBody MemberDto memberDto) {
-        int result = 1;
-        return new ResponseDto<Integer>(HttpStatus.OK.value(), result);
+        UserDetails userDetails = memberService.loadUserByUsername(memberDto.getMemberName());
+        return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }
 }
 
