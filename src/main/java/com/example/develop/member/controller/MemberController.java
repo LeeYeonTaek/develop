@@ -42,10 +42,9 @@ public class MemberController {
         return "member/login";
     }
 
-    @PostMapping("/loginProc")
-    public ResponseDto<Integer> login(@RequestBody MemberDto memberDto) {
-        UserDetails userDetails = memberService.loadUserByUsername(memberDto.getMemberName());
-        return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+    @GetMapping("/mypage")
+    public String mypage() {
+        return "member/mypage";
     }
 }
 
