@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <br/>
-
+mypage
 <br/>
-<script src="/js/member/login.js"></script>

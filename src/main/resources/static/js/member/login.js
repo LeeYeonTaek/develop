@@ -6,19 +6,7 @@ var index = {
     },
 
     login : function () {
-        // console.log(data);
-        $.ajax({
-            type:"POST",
-            url:"/member/login",
-            data: {
-                memberName: $("#memberName").val(),
-                memberPw: $("#memberPw").val()
-            },
-        }).success(function (resp){
-            alert("로그인 완료");
-        }).error(function (error){
-            alert(JSON.stringify(error));
-        });
+        $("#login-form").submit();
     }
 }
 

@@ -19,12 +19,6 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
-            throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
-    }
-
-    @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
@@ -40,7 +34,7 @@ public class SecurityConfig {
                 .loginPage("/member/login")
                 .usernameParameter("memberName")
                 .passwordParameter("memberPw")
-                .loginProcessingUrl("/member/login")
+                .loginProcessingUrl("/loginProc")
                 .defaultSuccessUrl("/")
                 .and()
                 .logout()

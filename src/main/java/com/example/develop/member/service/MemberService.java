@@ -22,6 +22,16 @@ public class MemberService implements UserDetailsService {
     private final MemberRepository memberRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
+
+    @Override
+    public UserDetails loadUserByUsername(String memberName) throws UsernameNotFoundException {
+        Member member = memberRepository.findByMemberName(memberName);
+        if(member != null) {
+            return new MemberDetails(member);
+        }
+        return null;
+    }
+
     @Transactional
     public int join(MemberDto memberDto) {
         try {
@@ -33,14 +43,5 @@ public class MemberService implements UserDetailsService {
             log.info("memberservice " + e.getMessage());
         }
         return -100;
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String memberName) throws UsernameNotFoundException {
-        Member member = memberRepository.findByMemberName(memberName);
-        if(member != null) {
-            return new MemberDetails(member);
-        }
-        return null;
     }
 }

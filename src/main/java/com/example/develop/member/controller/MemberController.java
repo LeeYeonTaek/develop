@@ -20,9 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Slf4j
 @RequestMapping("/member")
 public class MemberController {
-
     private final MemberService memberService;
-    private final AuthenticationManager authenticationManager;
 
     @GetMapping("/join")
     public String joinForm() {
