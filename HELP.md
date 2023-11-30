@@ -30,11 +30,18 @@
 ``<script async src="index.js"></script>``  
 ``<script defer src="index.js"></script>``
 
-`async의 경우에는 HTML 파싱과 script 파싱이 비동기적으로`  
+`async의 경우에는 HTML 파싱과 script 파싱이 비동기적으로`
 `동시에 진행되어 속도 개선이 가능, 하나 DOM 조작 에러가 발생할 수는 있다.`  
 `join.jsp 의 경우 코드 위치를 맨 위에 두더라도 DOM 조작 에러가 발생하지는 않음.`
 
 `defer의 경우 HTML 파싱이 모두 끝난 뒤 스크립트가 실행된다`  
 `맨위에 ``<scrpit>`` 코드 위치를 두더라도 에러가 발생하지 않았다.`
  
----
+___
+
++ security ROLE error
+   
+> 스프링 시큐리티는 DB에 저장되어있는 권한을 가져올 때,   
+> 자동적으로 ROLE_ 접두어를 붙혀 권한 에러 발생.
+
+```member.getRole().name()``` => ```"ROLE_" + member.getRole().name()```
