@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <br/>
 <form>
-    <form>
     <div class="form-container">
         <div class="inner-container">
             <div class="form-group">
@@ -19,7 +18,6 @@
             <button id="btn-save">회원가입</button>
         </div>
     </div>
-    </form>
 </form>
 <br/>
 <script src="/js/member/join.js"></script>
