@@ -44,4 +44,18 @@ public class MemberService implements UserDetailsService {
         }
         return -100;
     }
+
+    @Transactional
+    public MemberDto findByMemberName(String memberName) {
+        Member member = memberRepository.findByMemberName(memberName);
+        MemberDto memberDto =  MemberDto.builder()
+                                .memberId(member.getMemberId())
+                                .memberName(member.getMemberName())
+                                .memberPw(member.getMemberPw())
+                                .memberEmail(member.getMemberEmail())
+                                .role(member.getRole())
+                                .memberRegDate(member.getMemberRegDate())
+                                .build();
+        return memberDto;
+    }
 }
