@@ -50,11 +50,13 @@ public class MemberController {
         return "member/mypage";
     }
 
+
     @PostMapping("/mypage")
-    public ResponseDto<Integer> update(@RequestBody MemberDto memberDto) {
+    public String update(MemberDto memberDto, Model model) {
         log.info("mypage update");
-        int result = memberService.update(memberDto);
-        return new ResponseDto<Integer>(HttpStatus.OK.value(), result);
+        Member member = memberService.update(memberDto);
+        model.addAttribute("member", member);
+        return "member/mypage";
     }
 }
 

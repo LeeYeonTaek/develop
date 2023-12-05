@@ -62,15 +62,15 @@ public class MemberService implements UserDetailsService {
     }
 
     @Transactional
-    public int update (MemberDto memberDto) {
+    public Member update (MemberDto memberDto) {
         Optional<Member> optionalMember = memberRepository.findById(memberDto.getMemberId());
         if(optionalMember.isPresent()) {
             Member member = optionalMember.get();
             member.setMemberEmail(memberDto.getMemberEmail());
             memberRepository.save(member);
-            return 1;
+            return member;
         } else {
-            return 0;
+            return null;
         }
     }
 }
