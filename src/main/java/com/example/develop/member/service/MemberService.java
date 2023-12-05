@@ -13,6 +13,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -57,5 +59,18 @@ public class MemberService implements UserDetailsService {
                                 .memberRegDate(member.getMemberRegDate())
                                 .build();
         return memberDto;
+    }
+
+    @Transactional
+    public int update (MemberDto memberDto) {
+        Optional<Member> optionalMember = memberRepository.findById(memberDto.getMemberId());
+        if(optionalMember.isPresent()) {
+            Member member = optionalMember.get();
+            member.setMemberEmail(memberDto.getMemberEmail());
+            memberRepository.save(member);
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }

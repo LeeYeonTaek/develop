@@ -49,5 +49,12 @@ public class MemberController {
         model.addAttribute("member", memberDto);
         return "member/mypage";
     }
+
+    @PostMapping("/mypage")
+    public ResponseDto<Integer> update(@RequestBody MemberDto memberDto) {
+        log.info("mypage update");
+        int result = memberService.update(memberDto);
+        return new ResponseDto<Integer>(HttpStatus.OK.value(), result);
+    }
 }
 
