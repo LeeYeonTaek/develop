@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<br/>
 <div class="sidebar">
     <ul class="side-menu" id="responsive-side-menu">
         <button id="close-btn">&times;</button>
@@ -13,4 +12,3 @@
         <li><a href="#mypage">마이페이지</a></li>
     </ul>
 </div>
-<br/>

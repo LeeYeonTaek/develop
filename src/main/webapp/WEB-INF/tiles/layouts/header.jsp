@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<br/>
 <div class="menu-wrap">
 <ul class="menu" id="responsive-menu">
     <li><a href="#home">홈</a></li>
@@ -13,4 +12,3 @@
     <li><a href="#" id="toogle-btn">☰</a></li>
 </ul>
 </div>
-<br/>

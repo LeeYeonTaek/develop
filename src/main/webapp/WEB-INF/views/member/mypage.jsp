@@ -1,5 +1,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div class="menu-container">
+    <div class="right-container">
+        <a href="/member/pwUpdate">비밀번호 수정</a>
+    </div>
+</div>
 <form action="/member/mypage" method="POST" id="mypage-form">
     <input hidden="text" id="memberId" name="memberId" value="${member.memberId}">
     <div class="form-container">
