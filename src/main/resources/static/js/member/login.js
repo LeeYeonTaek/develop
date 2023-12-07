@@ -8,6 +8,7 @@ var index = {
     login : function () {
         $("#login-form").submit();
     }
+
 }
 
 index.init();
