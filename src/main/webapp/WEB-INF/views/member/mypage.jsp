@@ -6,7 +6,7 @@
         <a href="/member/pwChange">비밀번호 수정</a>
     </div>
 </div>
-<form action="/member/mypage" method="POST" id="mypage-form">
+<form id="mypage-form">
     <input hidden="text" id="memberId" name="memberId" value="${member.memberId}">
     <div class="form-container">
         <div class="inner-container">
