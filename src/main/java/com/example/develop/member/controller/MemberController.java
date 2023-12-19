@@ -52,11 +52,11 @@ public class MemberController {
 
 
     @PostMapping("/mypage")
-    public ResponseDto<Member> mypageUpdate(@RequestBody MemberDto memberDto, Model model) {
+    public String mypageUpdate(MemberDto memberDto, Model model) {
         log.info("mypage update");
         Member member = memberService.update(memberDto);
         model.addAttribute("member", member);
-        return new ResponseDto<Member>(HttpStatus.OK.value(), member);
+        return "member/mypage";
     }
 
     @GetMapping("/pwChange")
