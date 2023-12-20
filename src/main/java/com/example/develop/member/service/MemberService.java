@@ -73,4 +73,16 @@ public class MemberService implements UserDetailsService {
             return null;
         }
     }
+
+    @Transactional
+    public Member pwChange (MemberDto memberDto) {
+        Member member = memberRepository.findByMemberName(memberDto.getMemberName());
+        if( member != null ) {
+            member.setMemberPw(passwordEncoder.encode(memberDto.getNewPw()));
+            memberRepository.save(member);
+            return member;
+        } else {
+            return null;
+        }
+    }
 }

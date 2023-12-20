@@ -9,6 +9,6 @@
                 <li><a href="#submenu1">서비스1</a></li>
             </ul>
         </licl>
-        <li><a href="#mypage">마이페이지</a></li>
+        <li><a href="/member/mypage">마이페이지</a></li>
     </ul>
 </div>

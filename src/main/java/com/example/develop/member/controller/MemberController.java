@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
     private final MemberService memberService;
 
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
     @GetMapping("/join")
     public String joinForm() {
         return "member/join";
@@ -65,7 +67,13 @@ public class MemberController {
     }
 
     @PostMapping("/pwChange")
-    public String pwChangeUpdate() {
+    public String pwChangeUpdate(@AuthenticationPrincipal UserDetails userDetails, MemberDto memberDto) {
+        if(!bCryptPasswordEncoder.matches(memberDto.getCurrentPw(), userDetails.getPassword())) {
+            return "redirect:/member/pwChange?error";
+        }
+        memberDto.setMemberName(userDetails.getUsername());
+        memberService.pwChange(memberDto);
+
         return "member/pwChange";
     }
 }

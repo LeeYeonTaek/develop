@@ -8,7 +8,7 @@
             <li><a href="#submenu1">서비스1</a></li>
         </ul>
     </li>
-    <li><a href="#mypage">마이페이지</a></li>
+    <li><a href="/member/mypage">마이페이지</a></li>
     <li><a href="#" id="toogle-btn">☰</a></li>
 </ul>
 </div>

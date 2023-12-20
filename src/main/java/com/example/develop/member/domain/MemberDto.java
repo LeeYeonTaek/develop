@@ -23,6 +23,9 @@ public class MemberDto {
     @Enumerated(EnumType.STRING)
     private RoleType role;
     private Timestamp memberRegDate;
+
+    private String currentPw;
+    private String newPw;
     public Member toEntity() {
         Member member = Member.builder()
                 .memberId(memberId)
