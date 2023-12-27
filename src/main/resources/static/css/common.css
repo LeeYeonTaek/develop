@@ -1,7 +1,7 @@
 body { font-family: Arial, sans-serif; margin: 0; padding: 0;}
 
 /* 메뉴 스타일링 */
-ul.menu { list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: #333;}
+ul.menu { list-style-type: none; margin: -8px; padding: 0; overflow: hidden; background-color: #333;}
 
 ul.menu li { display: inline-block; margin-right: 40px;}
 
@@ -99,12 +99,13 @@ body {
     justify-content: center;
     margin: 0;
     background-color: #f8f9fa;
+    height: 500px;
 }
 
 .inner-container {
     max-width: 400px;
     width: 100%;
-    padding: 20px;
+    padding: 40px;
     border: 1px solid #ced4da;
     border-radius: 5px;
     background-color: #fff;
@@ -112,7 +113,7 @@ body {
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 30px
 }
 
 label {
@@ -154,11 +155,8 @@ button:hover {
     background-color: #f8f9fa;
     padding: 10px 10px;
 }
+
 .right-container {
-    display: flex;
-    width: 440px;
-}
-.menu-container .right-container a {
     text-decoration: none;
     display: inline-block;
     padding: 10px 10px;
@@ -173,4 +171,25 @@ button:hover {
 
 .menu-container a:hover {
     background-color: #23272b;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -12px;
+    background-color: #f8f9fa;
+    padding: 1px;
+}
+
+.top-a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.top-a-none {
+    cursor: default;
+    font-size: 14pxs;
 }
