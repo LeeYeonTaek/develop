@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<br/>
+<div class="container-fluid">
 <form>
     <div class="form-container">
         <div class="inner-container">
@@ -19,6 +19,6 @@
         </div>
     </div>
 </form>
-<br/>
+</div>
 <script src="/js/member/join.js"></script>
 <link href="/css/member/join.css" rel="stylesheet" type="text/css">
