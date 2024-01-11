@@ -39,15 +39,15 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                 </div>
-                                <form class="user">
+                                <form id="login-form" class="user" action="/loginProc" method="POST" >
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user"
-                                               id="exampleInputEmail" aria-describedby="emailHelp"
-                                               placeholder="Enter Email Address...">
+                                               id="memberName" name="memberName" aria-describedby="emailHelp"
+                                               placeholder="Enter memberId...">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user"
-                                               id="exampleInputPassword" placeholder="Password">
+                                               id="memberPw" name="memberPw" placeholder="Password">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
@@ -56,7 +56,7 @@
                                                 Me</label>
                                         </div>
                                     </div>
-                                    <a href="index.jsp" class="btn btn-primary btn-user btn-block">
+                                    <a href="#" id="btn-login" class="btn btn-primary btn-user btn-block">
                                         Login
                                     </a>
                                     <hr>
@@ -95,23 +95,8 @@
 
 <!-- Custom scripts for all pages-->
 <script src="/js/sb-admin-2.min.js"></script>
+<script src="/js/member/login.js"></script>
 
 </body>
 
 </html>
-<%--<br/>--%>
-<%--<form action="/loginProc" method="POST" id="login-form">--%>
-<%--    <div class="form-container">--%>
-<%--        <div class="inner-container">--%>
-<%--            <div class="form-group">--%>
-<%--                <label for="memberName">아이디 :</label> <input type="text" class="form-control" placeholder="이름을 입력해주세요." name="memberName" id="memberName">--%>
-<%--            </div>--%>
-<%--            <div class="form-group">--%>
-<%--                <label for=memberPw>비밀번호 </label> <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요." name="memberPw" id="memberPw">--%>
-<%--            </div>--%>
-<%--            <button id="btn-login" class="btn btn-dark">로그인</button>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</form>--%>
-<%--<br/>--%>
-<%--<script src="/js/member/login.js"></script>--%>
