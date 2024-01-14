@@ -17,11 +17,11 @@ var index = {
             url:"/member/join",
             data:JSON.stringify(data),
             contentType:"application/json; charset=utf-8",
-            dataType:"json"
         }).done(function (resp){
             alert("회원가입 완료");
+            location.href = "/member/login";
         }).fail(function (error){
-            alert(JSON.stringify(error));
+            alert("회원가입 실패");
         });
     }
 }
