@@ -53,7 +53,7 @@
 </div>
 
 <jsp:include page="/WEB-INF/layouts/footer.jsp"/>
-<script src="/js/member/join.js"></script>
+<script src="/js/member/join.js" charset="utf-8"></script>
 </body>
 
 </html>
