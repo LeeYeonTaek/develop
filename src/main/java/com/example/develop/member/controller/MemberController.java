@@ -46,8 +46,6 @@ public class MemberController {
 
     @GetMapping("/mypage")
     public String mypage(@AuthenticationPrincipal UserDetails userDetails, ModelAndView model) {
-        MemberDto memberDto = memberService.findByMemberName(userDetails.getUsername());
-        model.addObject("member", memberDto);
         return "member/mypage";
     }
 

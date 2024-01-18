@@ -13,11 +13,11 @@
                 <i class="fas fa-laugh-wink"></i>
             </div>
             <div class="sidebar-brand-text mx-3">
-                <c:if test="${empty currentUserDetails}">
+                <c:if test="${empty member}">
                     -
                 </c:if>
-                <c:if test="${not empty currentUserDetails}">
-                   ${currentUserDetails.member.memberName}
+                <c:if test="${not empty member}">
+                   ${member.memberName}
                 </c:if>
             </div>
         </a>
@@ -165,7 +165,7 @@
                 </form>
 
                 <!-- Topbar Navbar -->
-                <c:if test="${not empty currentUserDetails}">
+                <c:if test="${not empty member}">
                 <ul class="navbar-nav ml-auto">
 
                     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
@@ -315,7 +315,7 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">${currentUserDetails.member.memberName}</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">${member.memberName}</span>
                             <img class="img-profile rounded-circle"
                                  src="img/undraw_profile.svg">
                         </a>
