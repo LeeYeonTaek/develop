@@ -32,7 +32,27 @@ var index = {
     },
 
     change : function () {
-        $("#pwChange-form").submit();
+        var data = {
+            currentPw:$("#currentPw").val(),
+            newPw:$("#newPw").val()
+        };
+        // console.log(data);
+        $.ajax({
+            type:"POST",
+            url:"/member/pwChange",
+            data:JSON.stringify(data),
+            contentType:"application/json; charset=utf-8",
+            dataType: 'json'
+        }).done(function (resp,textStatus, jqXHR){
+            if(resp.status === 200) {
+                alert("비밀번호 변경 완료");
+                location.href = "/";
+            } else {
+                alert("비밀번호 변경 실패");
+            }
+        }).fail(function (error){
+            console.log(error)
+        });
     }
 
 }

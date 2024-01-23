@@ -64,14 +64,14 @@ public class MemberController {
     }
 
     @PostMapping("/pwChange")
-    public String pwChangeUpdate(@AuthenticationPrincipal UserDetails userDetails, MemberDto memberDto) {
+    public ResponseDto<String> pwChangeUpdate(@AuthenticationPrincipal UserDetails userDetails,@RequestBody MemberDto memberDto) {
         if(!bCryptPasswordEncoder.matches(memberDto.getCurrentPw(), userDetails.getPassword())) {
-            return "redirect:/member/pwChange?error";
+            return new ResponseDto<String>(HttpStatus.OK .value(), "fail");
         }
         memberDto.setMemberName(userDetails.getUsername());
         memberService.pwChange(memberDto);
 
-        return "member/pwChange";
+        return new ResponseDto<String>(HttpStatus.OK.value(), "success");
     }
 }
 
