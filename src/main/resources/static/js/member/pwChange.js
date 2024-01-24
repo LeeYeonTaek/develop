@@ -1,7 +1,7 @@
 var index = {
     init: function () {
         $("#btn-change").on("click", () => {
-            if($('#currentPw').val() === '') {
+            if ($('#currentPw').val() === '') {
                 $('#currentPw').focus();
                 alert('현재 비밀번호를 입력해주세요.');
                 return false;
@@ -31,30 +31,31 @@ var index = {
         });
     },
 
-    change : function () {
+    change: function () {
         var data = {
-            currentPw:$("#currentPw").val(),
-            newPw:$("#newPw").val()
+            'currentPw': $("#currentPw").val(),
+            'newPw': $("#newPw").val()
         };
         // console.log(data);
         $.ajax({
-            type:"POST",
-            url:"/member/pwChange",
-            data:JSON.stringify(data),
-            contentType:"application/json; charset=utf-8",
-            dataType: 'json'
-        }).done(function (resp,textStatus, jqXHR){
-            if(resp.status === 200) {
-                alert("비밀번호 변경 완료");
-                location.href = "/";
-            } else {
-                alert("비밀번호 변경 실패");
+            type: "post",
+            url: "/member/pwChange",
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response,status, xhr) {
+                if(xhr.status == 200 && response.result == 'success') {
+                    alert("비밀번호 변경 완료");
+                    location.href = "/";
+                }
+            },
+            error: function (xhr, status, error) {
+                if (JSON.parse(xhr.responseText).result == 'fail') {
+                   alert("비밀번호 변경 실패");
+                }
             }
-        }).fail(function (error){
-            console.log(error)
         });
+
     }
-
 }
-
 index.init();

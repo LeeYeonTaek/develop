@@ -8,6 +8,7 @@ import com.example.develop.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -64,14 +65,15 @@ public class MemberController {
     }
 
     @PostMapping("/pwChange")
-    public ResponseDto<String> pwChangeUpdate(@AuthenticationPrincipal UserDetails userDetails,@RequestBody MemberDto memberDto) {
-        if(!bCryptPasswordEncoder.matches(memberDto.getCurrentPw(), userDetails.getPassword())) {
-            return new ResponseDto<String>(HttpStatus.OK .value(), "fail");
+    public ResponseEntity<String> pwChangeUpdate(@AuthenticationPrincipal UserDetails userDetails, @RequestBody MemberDto memberDto) {
+        if (!bCryptPasswordEncoder.matches(memberDto.getCurrentPw(), userDetails.getPassword())) {
+            return new ResponseEntity<>("{\"result\": \"fail\"}", HttpStatus.BAD_REQUEST);
         }
+
         memberDto.setMemberName(userDetails.getUsername());
         memberService.pwChange(memberDto);
 
-        return new ResponseDto<String>(HttpStatus.OK.value(), "success");
+        return new ResponseEntity<>("{\"result\": \"success\"}", HttpStatus.OK);
     }
 }
 

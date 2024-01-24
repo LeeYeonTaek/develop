@@ -23,11 +23,13 @@ public class CustomInterceptor extends HandlerInterceptorAdapter {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
-            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-            MemberDto memberDto = memberService.findByMemberName(userDetails.getUsername());
-            modelAndView.addObject("member", memberDto);
-            modelAndView.addObject("currentUserDetails", userDetails);
+        if (!"XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
+            if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
+                UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+                MemberDto memberDto = memberService.findByMemberName(userDetails.getUsername());
+                modelAndView.addObject("member", memberDto);
+                modelAndView.addObject("currentUserDetails", userDetails);
+            }
         }
     }
 
