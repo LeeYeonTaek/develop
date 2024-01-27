@@ -1,5 +1,6 @@
 package com.example.develop.config;
 
+import jakarta.servlet.DispatcherType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -24,7 +25,7 @@ public class SecurityConfig {
                 .csrf(csrfConfig -> csrfConfig.disable())
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/", "/main", "/member/join", "/member/login", "/css/**", "/js/**", "/scss/**", "/vendor/**", "/images/**", "/layouts/**", "/img/**").permitAll()
+                                .requestMatchers("/", "/main", "/member/join", "/member/login", "/css/**", "/js/**", "/scss/**", "/vendor/**", "/images/**", "/layouts/**", "/img/**", "/WEB-INF/views/**").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/", "/member/**").permitAll()
                                 .requestMatchers("/member/**").hasRole("USER")
                                 .anyRequest().authenticated()
