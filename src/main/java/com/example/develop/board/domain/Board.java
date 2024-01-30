@@ -1,5 +1,6 @@
-package com.example.develop.member.domain;
+package com.example.develop.board.domain;
 
+import com.example.develop.member.domain.Member;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,7 +22,7 @@ public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "member_id", nullable = false)
