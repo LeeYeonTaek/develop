@@ -28,6 +28,8 @@ public class SecurityConfig {
                                 .requestMatchers("/", "/main", "/member/join", "/member/login", "/css/**", "/js/**", "/scss/**", "/vendor/**", "/images/**", "/layouts/**", "/img/**", "/WEB-INF/views/**").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/", "/member/**").permitAll()
                                 .requestMatchers("/member/**").hasRole("USER")
+                                .requestMatchers("/board/create").hasRole("USER") // Require USER role for /board/create
+                                .requestMatchers("/board", "/board/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin(formLogin ->

@@ -341,8 +341,8 @@
                             </a>
                         </div>
                     </li>
-                    </c:if>
                 </ul>
+                </c:if>
 
             </nav>
             <!-- End of Topbar -->
