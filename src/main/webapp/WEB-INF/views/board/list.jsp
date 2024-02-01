@@ -25,7 +25,6 @@
 </head>
 
 <body id="page-top">
-
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -382,6 +381,11 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+                            <c:set var="boardList" value="${modelAndView.model['boardList']}" />
+                            <c:forEach var="board" items="${boardList}">
+                                <p>${board.id}</p>
+                                <p>${board.title}</p>
+                            </c:forEach>
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
