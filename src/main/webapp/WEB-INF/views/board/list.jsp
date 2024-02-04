@@ -408,6 +408,12 @@
                                 </c:forEach>
                                 </tbody>
                             </table>
+                            <a href="/board/create" class="btn btn-secondary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </span>
+                                <span class="text">글등록</span>
+                            </a>
                         </div>
                     </div>
                 </div>

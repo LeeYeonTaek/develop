@@ -31,6 +31,8 @@ public class Board {
     @Column(nullable = false, length = 100)
     private String title;
 
+    @Column(nullable = false, length = 10000)
+    private String content;
     @CreationTimestamp
     private Timestamp createdDate;
 
