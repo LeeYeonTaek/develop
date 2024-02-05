@@ -26,7 +26,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
                                 .requestMatchers("/", "/main", "/member/join", "/member/login", "/css/**", "/js/**", "/scss/**", "/vendor/**", "/images/**", "/layouts/**", "/img/**", "/WEB-INF/views/**","/favicon.ico").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/", "/member/**").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/", "/member/**", "/board/**").permitAll()
                                 .requestMatchers("/member/**").hasRole("USER")
                                 .requestMatchers("/board/create").hasRole("USER") // Require USER role for /board/create
                                 .requestMatchers("/board", "/board/**").permitAll()

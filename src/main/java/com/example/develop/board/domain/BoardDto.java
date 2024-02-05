@@ -22,6 +22,7 @@ public class BoardDto {
     private int id;
     private Member author;
     private String title;
+    private String content;
     private Timestamp createdDate;
     private Timestamp lastModifiedDate;
     private List<Comment> comments;
@@ -31,6 +32,7 @@ public class BoardDto {
                 .id(board.getId())
                 .author(board.getAuthor())
                 .title(board.getTitle())
+                .content(board.getContent())
                 .createdDate(board.getCreatedDate())
                 .lastModifiedDate(board.getLastModifiedDate())
                 .comments(board.getComments())

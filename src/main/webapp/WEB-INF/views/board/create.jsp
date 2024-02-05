@@ -29,7 +29,7 @@
                                         <input type="text" class="form-control form-control-user"
                                                id="content" name="content" placeholder="게시글 내용" style="height: 500px;">
                                     </div>
-                                    <a href="#" id="btn-login" class="btn btn-primary btn-user btn-block">
+                                    <a href="#" id="btn-create" class="btn btn-primary btn-user btn-block">
                                         게시글 등록
                                     </a>
                                 </form>
@@ -45,7 +45,7 @@
 
 </div>
 <jsp:include page="/WEB-INF/layouts/footer.jsp"/>
-<script src="/js/member/login.js"></script>
-</boady>
+<script src="/js/board/create.js"></script>
+</body>
 
 </html>
