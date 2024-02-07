@@ -2,6 +2,7 @@ package com.example.develop.board.service;
 
 import com.example.develop.authentication.MemberDetails;
 import com.example.develop.board.domain.Board;
+import com.example.develop.board.domain.BoardDto;
 import com.example.develop.board.repository.BoardRepository;
 import com.example.develop.member.domain.Member;
 import com.example.develop.member.domain.MemberDto;
@@ -34,7 +35,16 @@ public class BoardService  {
         return boardList;
     }
 
-    private final BCryptPasswordEncoder passwordEncoder;
+    @Transactional
+    public boolean create(BoardDto boardDto) {
+        try {
+            boardRepository.save(boardDto.toEntity());
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();;
+            return false;
+        }
 
+    }
 
 }

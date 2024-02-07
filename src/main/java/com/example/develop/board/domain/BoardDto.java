@@ -27,15 +27,15 @@ public class BoardDto {
     private Timestamp lastModifiedDate;
     private List<Comment> comments;
 
-    public static BoardDto fromEntity(Board board) {
-        return BoardDto.builder()
-                .id(board.getId())
-                .author(board.getAuthor())
-                .title(board.getTitle())
-                .content(board.getContent())
-                .createdDate(board.getCreatedDate())
-                .lastModifiedDate(board.getLastModifiedDate())
-                .comments(board.getComments())
+    public Board toEntity() {
+        return Board.builder()
+                .id(id)
+                .author(getAuthor())
+                .title(getTitle())
+                .content(getContent())
+                .createdDate(getCreatedDate())
+                .lastModifiedDate(getLastModifiedDate())
+                .comments(getComments())
                 .build();
     }
 

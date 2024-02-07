@@ -44,9 +44,12 @@ public class BoardController {
         return "board/create";
     }
 
-    @PostMapping("/pwChange")
+    @PostMapping("/create")
     public ResponseEntity<String> createResource(@AuthenticationPrincipal UserDetails userDetails, @RequestBody BoardDto boardDto) {
-
+        boolean result = boardService.create(boardDto);
+        if (!result) {
+            return new ResponseEntity<>("{\"result\": \"fail\"}", HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>("{\"result\": \"success\"}", HttpStatus.OK);
     }
 }
