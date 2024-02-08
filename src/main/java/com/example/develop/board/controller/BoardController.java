@@ -1,9 +1,12 @@
 package com.example.develop.board.controller;
 
+import com.example.develop.authentication.MemberDetails;
 import com.example.develop.board.domain.Board;
 import com.example.develop.board.domain.BoardDto;
 import com.example.develop.board.service.BoardService;
+import com.example.develop.member.domain.Member;
 import com.example.develop.member.domain.MemberDto;
+import com.example.develop.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -28,6 +31,8 @@ public class BoardController {
 
     private final BoardService boardService;
 
+    private final MemberService memberService;
+
     @GetMapping("")
     public String list(ModelAndView modelAndView) {
 
@@ -46,6 +51,9 @@ public class BoardController {
 
     @PostMapping("/create")
     public ResponseEntity<String> createResource(@AuthenticationPrincipal UserDetails userDetails, @RequestBody BoardDto boardDto) {
+        MemberDetails memberDetails = (MemberDetails) userDetails;
+        Member member = memberDetails.getMember();
+        boardDto.setAuthor(member);
         boolean result = boardService.create(boardDto);
         if (!result) {
             return new ResponseEntity<>("{\"result\": \"fail\"}", HttpStatus.BAD_REQUEST);
