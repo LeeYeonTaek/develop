@@ -402,7 +402,7 @@
                                 <c:forEach var="board" items="${boardList}">
                                     <tr>
                                         <td>${board.author.memberName}</td>
-                                        <td>${board.title}</td>
+                                        <td><a href="/board/detail?memberId=${board.author.memberId}&id=${board.id}">${board.title}</a></td>
                                         <td>${board.createdDate}</td>
                                     </tr>
                                 </c:forEach>

@@ -44,7 +44,16 @@ public class BoardService  {
             e.printStackTrace();;
             return false;
         }
+    }
 
+    @Transactional
+    public Board find(int id) {
+       Optional<Board> optionalBoard = boardRepository.findById(id);
+       if(optionalBoard.isPresent()) {
+         Board board = optionalBoard.get();
+         return board;
+       }
+       return null;
     }
 
 }

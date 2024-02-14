@@ -30,12 +30,12 @@ public class BoardDto {
     public Board toEntity() {
         return Board.builder()
                 .id(id)
-                .author(getAuthor())
-                .title(getTitle())
-                .content(getContent())
-                .createdDate(getCreatedDate())
-                .lastModifiedDate(getLastModifiedDate())
-                .comments(getComments())
+                .author(author)
+                .title(title)
+                .content(content)
+                .createdDate(createdDate)
+                .lastModifiedDate(lastModifiedDate)
+                .comments(comments)
                 .build();
     }
 

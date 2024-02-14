@@ -15,10 +15,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -44,6 +41,7 @@ public class BoardController {
         return "board/list";
     }
 
+
     @GetMapping("/create")
     public String create(ModelAndView modelAndView) {
         return "board/create";
@@ -59,5 +57,13 @@ public class BoardController {
             return new ResponseEntity<>("{\"result\": \"fail\"}", HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>("{\"result\": \"success\"}", HttpStatus.OK);
+    }
+
+    @GetMapping("/detail")
+    public String detail (ModelAndView modelAndView, @RequestParam int id, @RequestParam int memberId) {
+        Board board = boardService.find(id);
+        modelAndView.addObject("memberId", memberId);
+        modelAndView.addObject("board", board);
+        return "board/detail";
     }
 }
